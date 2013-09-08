@@ -37,7 +37,6 @@ This file is part of "RPG is a Python Game" (or simply the RPG).
    <http://www.gnu.org/licenses/>.)
 '''
 import pygame
-#Инициализация движка
 pygame.init()
 black=(  0,  0,  0)
 red=  (255,  0,  0)
@@ -51,14 +50,14 @@ m_pos=pygame.mouse.get_pos()
 font=pygame.font.Font(None, 25)
 #pic_gpl=pygame.image.load("./res/pic/gpl.png").convert_alpha()
 pic_gpl=font.render(u"GPLv3",True,black)
-t_loc=font.render(u"Copyright 2013 glade0lus",True,black)
-t_loc2=font.render(u"Copyright ",True,black)
-t_a1=font.render(u"2013 ",True,black)
-t_a2=font.render(u"gl",True,black)
-t_a3=font.render(u"ad",True,black)
-t_a4=font.render(u"e0",True,black)
-t_a5=font.render(u"lu",True,black)
-t_a6=font.render(u"s",True,black)
+t_loc=font.render(u"",True,black)
+t_loc2=font.render(u"",True,black)
+t_a1=font.render(u"",True,black)
+t_a2=font.render(u"",True,black)
+t_a3=font.render(u"",True,black)
+t_a4=font.render(u"",True,black)
+t_a5=font.render(u"",True,black)
+t_a6=font.render(u"",True,black)
 t_m_pos=font.render(u"Mouse pos: "+str(m_pos),True,black)
 exit=False
 loc1=True
