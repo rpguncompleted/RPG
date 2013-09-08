@@ -1,0 +1,5 @@
+RPG is a simple text-based game, which used python2 and pygame.
+When this game been done, these feature can be part of a game:
+1. Adventures
+'''In game you can joining in adventures (I'm trying to make a random forest and cities)
+2. Random generated map(I think, I can make a save of the world, so you can found a place where you been in the past)
