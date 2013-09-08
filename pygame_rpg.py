@@ -38,60 +38,48 @@ This file is part of "RPG is a Python Game" (or simply the RPG).
 '''
 import pygame
 pygame.init()
-black=(  0,  0,  0)
+black=(  0,  0,  0) #Colors
 red=  (255,  0,  0)
 green=(  0,255,  0)
 blue= (  0,  0,255)
 white=(255,255,255)
-screen=pygame.display.set_mode([700, 500])
+screen=pygame.display.set_mode([800, 600])
 pygame.display.set_caption("RPG: Role Playing Game")
 clock=pygame.time.Clock()
 m_pos=pygame.mouse.get_pos()
 font=pygame.font.Font(None, 25)
 #pic_gpl=pygame.image.load("./res/pic/gpl.png").convert_alpha()
 pic_gpl=font.render(u"GPLv3",True,black)
-t_loc=font.render(u"",True,black)
-t_loc2=font.render(u"",True,black)
-t_a1=font.render(u"",True,black)
-t_a2=font.render(u"",True,black)
-t_a3=font.render(u"",True,black)
-t_a4=font.render(u"",True,black)
-t_a5=font.render(u"",True,black)
-t_a6=font.render(u"",True,black)
-t_m_pos=font.render(u"Mouse pos: "+str(m_pos),True,black)
-exit=False
-loc1=True
-loc2=False
-loc3=False
-rus=True
-eng=True
-k1=pygame.K_1
+t_d=font.render(u"Copyright 2013 glade0lus",True,black) #Description
+t_d2=font.render(u"Copyright ",True,black) #Description 2
+t_a1=font.render(u"2013 ",True,black) #Action 1-6
+t_a2=font.render(u"gl",True,black)
+t_a3=font.render(u"ad",True,black)
+t_a4=font.render(u"e0",True,black)
+t_a5=font.render(u"lu",True,black)
+t_a6=font.render(u"s",True,black)
+t_m_pos=font.render(u"Mouse pos: "+str(m_pos),True,black) #Mouse position
+exit=False #While True, exit cycle
+rus=False
+eng=False
+t_a1=font.render(u"Choose a language",True,black)
+t_a2=font.render(u"Выберите язык",True,black)
+t_a3=font.render(u"1.English",True,black)
+t_a4=font.render(U"2.Русский - Russian",True,black)
+k1=pygame.K_1 #Keys 1-6
 k2=pygame.K_2
 k3=pygame.K_3
 k4=pygame.K_4
 k5=pygame.K_5
 k6=pygame.K_6
 while exit==False:
-    while rus==True and eng==True and exit==False:
-        clock.tick(30)
-        screen.fill(white)
-        screen.blit(t_loc, [350, 250])
-        pygame.display.flip()
-        rus=False
-        eng=False
-        t_a1=font.render(u"Choose a language",True,black)
-        t_a2=font.render(u"Выберите язык",True,black)
-        t_a3=font.render(u"1.English",True,black)
-        t_a4=font.render(U"2.Русский - Russian",True,black)
     while rus==False and eng==False and exit==False:
         clock.tick(30)
-        t_m_pos=font.render(u"Mouse pos: "+str(m_pos),True,black)
         screen.fill(white)
         screen.blit(t_a1, [0, 0])
         screen.blit(t_a2, [0, 20])
         screen.blit(t_a3, [0, 40])
         screen.blit(t_a4, [0, 60])
-        screen.blit(t_m_pos, [0, 300])
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
@@ -100,38 +88,66 @@ while exit==False:
             key=pygame.key.get_pressed()
             if key[k1]:
                 eng=True
-                t_loc=font.render(u"Prison",True,black)
-                t_loc2=font.render(u"You are in prison",True,black)
+                t_d=font.render(u"Prison",True,black)
+                t_d2=font.render(u"You are in prison",True,black)
+                t_a1=font.render(u"1.Shout",True,black)
+                t_a2=font.render(u"2.Look around",True,black)
+                t_a3=font.render(u"3.Wait",True,black)
+                t_a4=font.render(u"4.Open door with key",True,black)
             if key[k2]:
                 rus=True
-                t_loc=font.render(u"Тюрьма",True,black)
-                t_loc2=font.render(u"Вы находитесь в тюрьме",True,black)
+                t_d=font.render(u"Тюрьма",True,black)
+                t_d2=font.render(u"Вы находитесь в тюрьме",True,black)
+                t_a1=font.render(u"1.Кричать",True,black)
+                t_a2=font.render(u"2.Осмотреться",True,black)
+                t_a3=font.render(u"3.Ждать",True,black)
+                t_a4=font.render(u"4.Открыть дверь ключом",True,black)
     while rus==True or eng==True and exit==False:
         clock.tick(30)
         screen.fill(white)
-        screen.blit(t_loc, [0, 0])
-        screen.blit(t_loc2, [0, 20])
-        
-# while exit==False:
-#     while loc1==True and exit==False:
-#         clock.tick(30)
-#         m_pos=pygame.mouse.get_pos()
-#         t_m_pos=font.render(u"Mouse pos: "+str(m_pos),True,black)
-#         screen.fill(white)
-#         screen.blit(t_loc1, [0, 0])
-#         screen.blit(t_loc1_a1, [0, 20])
-#         screen.blit(t_loc1_a2, [0, 40])
-#         screen.blit(pic_gpl, [570, 450])
-#         screen.blit(t_m_pos, [0, 480])
-#         pygame.display.flip()
-#         for event in pygame.event.get():
-#             if event.type==pygame.QUIT:
-#                 exit=True
-#             key=pygame.key.get_pressed()
-#             if key[k1]:
-#                 loc1=False
-#                 loc2=True
-#             if key[k2]:
-#                 loc1=False
-#                 loc3=True
+        screen.blit(t_d , [0,  0])
+        screen.blit(t_d2, [0, 20])
+        screen.blit(t_a1, [0, 40])
+        screen.blit(t_a2, [0, 60])
+        screen.blit(t_a3, [0, 80])
+        screen.blit(t_a4, [0,100])
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type==pygame.QUIT:
+                exit=True
+            key=pygame.key.get_pressed()
+            if key[k1]:
+                if eng==True:
+                    t_d=font.render(u"You shouted for a long time, but on your shouts no one responded.",True,black)
+                    t_a1=font.render(u"1.Back",True,black)
+                if rus==True:
+                    t_d=font.render(u"Вы кричали очень долго, но на ваши крики никто не откликнулся.",True,black)
+                    t_a1=font.render(u"1.Назад",True,black)
+                exitLoc=False
+                while exitLoc==False and exit==False:
+                    clock.tick(30)
+                    screen.fill(white)
+                    screen.blit(t_d, [0,  0])
+                    screen.blit(t_a1, [0,  20])
+                    pygame.display.flip()
+                    for event in pygame.event.get():
+                        if event.type==pygame.QUIT:
+                            exit==True
+                        key=pygame.key.get_pressed()
+                        if key[k1]:
+                            if eng==True:
+                                t_d=font.render(u"Prison",True,black)
+                                t_d2=font.render(u"You are in prison",True,black)
+                                t_a1=font.render(u"1.Shout",True,black)
+                                t_a2=font.render(u"2.Look around",True,black)
+                                t_a3=font.render(u"3.Wait",True,black)
+                                t_a4=font.render(u"4.Open door with key",True,black)
+                            if rus==True:
+                                t_d=font.render(u"Тюрьма",True,black)
+                                t_d2=font.render(u"Вы находитесь в тюрьме",True,black)
+                                t_a1=font.render(u"1.Кричать",True,black)
+                                t_a2=font.render(u"2.Осмотреться",True,black)
+                                t_a3=font.render(u"3.Ждать",True,black)
+                                t_a4=font.render(u"4.Открыть дверь ключом",True,black)
+                            exitLoc=True
 pygame.quit()
